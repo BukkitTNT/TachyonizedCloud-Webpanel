@@ -1,0 +1,346 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Cloud Menu</title>
+		<link rel="stylesheet" type="text/css" href="assets/css/menu--style.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/col--style.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/tab--style.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/page--style.css">
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
+	</head>
+	<body>
+		<nav class="side--menu">
+			<ul class="side--menu--list">
+				<li><a href="https://ingrim4.me/" class="fa fa-flask"></a></li>
+				<li class="side--menu--current"><a class="fa fa-home"></a></li>
+				<li><a href="./settings.html" class="fa fa-cog"></a></li>
+				<li><a href="./server.html" class="fa fa-server"></a></li>
+				<li><a href="./gamemodes.html" class="fa fa-gamepad"></a></li>
+				<li><a href="./layout.html" class="fa fa-pencil-square-o"></a></li>
+				<li><a href="./logout.html" class="fa fa-power-off"></a></li>
+			</ul>
+		</nav>
+		<div id="page">
+			<h1>Dashboard</h1>
+			<nav class="tab--menu">
+				<ul class="tab--menu--list">
+					<li class="tab--menu--item tab--menu--current"><a href="#" class="tab--menu--link" data-chart="global">Global</a></li>
+					<li class="tab--menu--item"><a href="#" class="tab--menu--link" data-chart="distribution">Spielerverteilung</a></li>
+					<li class="tab--menu--item"><a href="#" class="tab--menu--link" data-chart="games">Games</a></li>
+					<li class="tab--menu--item"><a href="#" class="tab--menu--link" data-chart="player">Spieler</a></li>
+					<li class="tab--menu--item tab--menu--fill"></li>
+				</ul>
+			</nav>
+			<div class="chart--container">
+				<div id="global" class="chart--container--active">
+					<div class="col--8-8">
+						<canvas id="global--chart"></canvas>
+					</div>
+				</div>
+				<div id="distribution">
+					<div class="col--8-8">
+						<canvas id="distribution--chart"></canvas>
+					</div>
+				</div>
+				<div id="games">
+					<div class="col--3-2">
+						<canvas id="games--type--chart"></canvas>
+					</div>
+					<div class="col--3-1">
+						<canvas id="games--online--chart"></canvas>
+					</div>
+					<div class="col--3-1">
+						<canvas id="games--current--chart"></canvas>
+					</div>
+				</div>
+				<div id="player">
+					<div class="col--8-4">
+						<canvas id="player--version--chart"></canvas>
+					</div>
+					<div class="col--8-4">
+						<canvas id="player--type--chart"></canvas>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="cloud--console">
+			<div class="console">
+				<pre></pre>
+				<div class="console--input">
+					<textarea class="default" rows="0"></textarea>
+				</div>
+			</div>
+		</div>
+		<div id="dialog--overlay"></div>
+	</body>
+	<script>
+		var timeFormat = 'DD.MM.YYYY HH:mm';
+
+		var randomData = function(length) {
+			var array = [];
+			for(var i = 0; i < length; i++)
+				array[i] = Math.round(Math.random() * 100);
+			return array;
+		}
+
+		function randomScalingFactor() {
+			return Math.round(Math.random() * 100);
+		}
+
+		var timeArray = function(length, distance) {
+			var array = [];
+			for(var i = 0; i < length; i++)
+				array[i] = moment().add(distance * i, 'ms').format(timeFormat);
+			return array;
+		}
+
+		var config = [{
+			type: 'line',
+			data: {
+				labels: timeArray(12, 1000 * 60 * 60),
+				datasets: [{
+					label: 'Server',
+					fill: false,
+					data: [23, 31, 50, 45, 40, 35, 31, 25, 20, 30, 38, 45],
+					borderColor: '#47d758',
+					backgroundColor: 'rgba(71, 215, 88, 0.4)',
+					pointBackgroundColor: '#47d758',
+					pointdoverBackgroundColor: '#47d758',
+					pointdoverBorderColor: 'rgba(0, 0, 0, 0)'
+				}, {
+					label: 'Spieler',
+					data: [320, 432, 502, 470, 320, 280, 210, 100, 192, 250, 320, 402],
+					borderColor: '#2588f8',
+					backgroundColor: 'rgba(37, 136, 248, 0.4)',
+					pointBackgroundColor: '#2588f8',
+					pointdoverBackgroundColor: '#2588f8',
+					pointdoverBorderColor: 'rgba(0, 0, 0, 0)'
+				}]
+			},
+			options: {
+				responsive: true,
+				tooltips: {
+					mode: 'label',
+					titleFontSize: 16,
+					bodyFontSize: 14,
+					titleFontFamily: 'Roboto',
+					bodyFontFamily: 'Roboto'
+				},
+				hover: {
+					mode: 'single'
+				},
+				legend: {
+					display: false
+				},
+				elements: {
+					point: {
+						hoverRadius: 5
+					}
+				},
+				scales: {
+					xAxes: [{
+						type: 'time',
+						display: true,
+						time: {
+							format: timeFormat
+						}
+					}]
+				}
+			}
+		}, {
+			type: 'bar',
+			data: {
+				labels: timeArray(13, 1000 * 60 * 60),
+				datasets: [{
+					label: 'Spiel 1',
+					data: randomData(12),
+					backgroundColor: 'rgba(71, 215, 88, 0.5)'
+				}, {
+					label: 'Spiel 2',
+					data: randomData(12),
+					backgroundColor: 'rgba(37, 136, 248, 0.5)'
+				}, {
+					label: 'Spiel 3',
+					data: randomData(12),
+					backgroundColor: 'rgba(215, 71, 71, 0.5)'
+				}]
+			},
+			options: {
+				responsive: true,
+				tooltips: {
+					mode: 'single',
+					titleFontSize: 16,
+					bodyFontSize: 14,
+					titleFontFamily: 'Roboto',
+					bodyFontFamily: 'Roboto',
+				},
+				hover: {
+					mode: 'single'
+				},
+				elements: {
+					point: {
+						hoverRadius: 4.5
+					}
+				},
+				scales: {
+					xAxes: [{
+						display: true,
+													stacked: true,
+						type: 'time',
+						time: {
+							format: timeFormat
+						}
+					}],
+					yAxes: [{
+						display: true,
+													stacked: true
+					}]
+				}
+			}
+		}, { //game started
+			type: 'pie',
+			data: {
+				labels: ['Spiel 1', 'Spiel 2', 'Spiel 3'],
+				datasets: [{
+					data: [45, 55, 132],
+					backgroundColor: ['rgba(71, 215, 88, 0.5)', 'rgba(37, 136, 248, 0.5)', 'rgba(215, 71, 71, 0.5)']
+				}]
+			},
+			options: {
+				responsive: true,
+				legend: {
+					display: false
+				},
+				title: {
+					display: true,
+					text: 'Server started',
+					position: 'bottom',
+					fontColor: '#fff',
+					fontFamily: 'Roboto',
+					fontStyle: 100,
+					fontSize: 18
+				}
+			}
+		}, { //game online
+			type: 'pie',
+			data: {
+				labels: ['Spiel 1', 'Spiel 2', 'Spiel 3'],
+				datasets: [{
+					data: [7, 5, 12],
+					backgroundColor: ['rgba(71, 215, 88, 0.5)', 'rgba(37, 136, 248, 0.5)', 'rgba(215, 71, 71, 0.5)']
+				}]
+			},
+			options: {
+				responsive: true,
+				legend: {
+					display: false
+				},
+				title: {
+					display: true,
+					text: 'Server online',
+					position: 'bottom',
+					fontColor: '#fff',
+					fontFamily: 'Roboto',
+					fontStyle: 100,
+					fontSize: 18
+				}
+			}
+		}, { //game current
+			type: 'pie',
+			data: {
+				labels: ['Spiel 1', 'Spiel 2', 'Spiel 3'],
+				datasets: [{
+					data: [62, 41, 132],
+					backgroundColor: ['rgba(71, 215, 88, 0.5)', 'rgba(37, 136, 248, 0.5)', 'rgba(215, 71, 71, 0.5)']
+				}]
+			},
+			options: {
+				responsive: true,
+				legend: {
+					display: false
+				},
+				title: {
+					display: true,
+					text: 'Players playing game',
+					position: 'bottom',
+					fontColor: '#fff',
+					fontFamily: 'Roboto',
+					fontStyle: 100,
+					fontSize: 18
+				}
+			}
+		}, {
+			type: 'pie',
+			data: {
+				labels: ['1.7.*', '1.8.*'],
+				datasets: [{
+					data: [45, 55],
+					backgroundColor: ['rgba(37, 136, 248, 0.5)', 'rgba(215, 71, 71, 0.5)']
+				}]
+			},
+			options: {
+				responsive: true,
+				legend: {
+					display: false
+				},
+				title: {
+					display: true,
+					text: 'Minecraft-Version',
+					position: 'bottom',
+					fontColor: '#fff',
+					fontFamily: 'Roboto',
+					fontStyle: 100,
+					fontSize: 22
+				}
+			}
+		}, {
+			type: 'pie',
+			data: {
+				labels: ['New', 'Returning'],
+				datasets: [{
+					data: [1532, 6345],
+					backgroundColor: ['rgba(37, 136, 248, 0.5)', 'rgba(71, 215, 88, 0.5)']
+				}]
+			},
+			options: {
+				responsive: true,
+				legend: {
+					display: false
+				},
+				title: {
+					display: true,
+					text: 'New vs Returning',
+					position: 'bottom',
+					fontColor: '#fff',
+					fontFamily: 'Roboto',
+					fontStyle: 100,
+					fontSize: 22
+				}
+			}
+		}];
+
+		window.onload = function() {
+			var ctx = document.getElementById('global--chart').getContext('2d');
+			window.globalChart = new Chart(ctx, config[0]);
+			var ctx = document.getElementById('distribution--chart').getContext('2d');
+			window.distributionChart = new Chart(ctx, config[1]);
+			var ctx = document.getElementById('games--type--chart').getContext('2d');
+			window.distributionChart = new Chart(ctx, config[2]);
+			var ctx = document.getElementById('games--online--chart').getContext('2d');
+			window.distributionChart = new Chart(ctx, config[3]);
+			var ctx = document.getElementById('games--current--chart').getContext('2d');
+			window.distributionChart = new Chart(ctx, config[4]);
+			var ctx = document.getElementById('player--version--chart').getContext('2d');
+			window.distributionChart = new Chart(ctx, config[5]);
+			var ctx = document.getElementById('player--type--chart').getContext('2d');
+			window.distributionChart = new Chart(ctx, config[6]);
+		};
+	</script>
+	<script src="assets/js/tab.js"></script>
+</html>

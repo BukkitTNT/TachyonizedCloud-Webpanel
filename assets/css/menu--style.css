@@ -1,0 +1,42 @@
+
+.side--menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 82px;
+  background: var(--bg-accent-color);
+}
+
+.side--menu--list {
+  list-style: none;
+}
+
+.side--menu--list li {
+  height: 82px;
+}
+
+.side--menu--list a {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: var(--trans-combi);
+}
+
+.side--menu--list a:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 22px;
+  transition: var(--trans-combi);
+  color: var(--font-accent-color);
+  transform: translate(-50%, -50%);
+}
+
+.side--menu--list a:hover,
+.side--menu--list a:hover:before,
+.side--menu--current a,
+.side--menu--current a:before {
+  background: var(--bg-color);
+  color: var(--font-color);
+}

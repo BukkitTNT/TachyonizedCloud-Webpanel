@@ -1,0 +1,137 @@
+/*
+ tab--style.css v1.0.0
+ http://www.codrops.com - http://tympanus.net/codrops/2016/01/06/inspiration-for-line-menu-styles/
+
+ Licensed under the MIT license.
+ http://www.opensource.org/licenses/mit-license.php
+
+ Copyright 2016, Codrops
+ http://www.codrops.com
+
+ edited by Ingrim4
+*/
+.tab--menu {
+	line-height: 1;
+	margin: 0 auto 1em;
+}
+
+.tab--menu * {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.tab--menu--list {
+	position: relative;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.tab--menu--item {
+	display: block;
+	margin: 1em 0;
+	background: var(--bg-color);
+}
+
+.tab--menu--link {
+	font-size: 1.05em;
+	display: block;
+	padding: 1em;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-touch-callout: none;
+	-khtml-user-select: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.tab--menu--link:hover,
+.tab--menu--link:focus {
+	outline: none;
+}
+
+.tab--menu--item:first-of-type {
+	margin-left: 5em;
+}
+
+.tab--menu--fill {
+	position: absolute !important;
+	width: 100%;
+	left: 50%;
+	z-index: -50;
+	transform: translate(-50%, 48px);
+}
+
+.tab--menu--item {
+	position: relative;
+}
+
+.tab--menu--link {
+	position: relative;
+	min-width: 7rem;
+	height: 50px;
+	color: var(--font-accent-color);
+	padding: 1em 1.5em;
+	text-align: center;
+	-webkit-transition: color 0.3s;
+	transition: color 0.3s;
+}
+
+.tab--menu--item::before,
+.tab--menu--item::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	color: var(--font-accent-color);
+	border-style: solid;
+	-webkit-transition: -webkit-transform 0.2s cubic-bezier(1, 0.6, 0, 1);
+	transition: transform 0.2s cubic-bezier(1, 0.6, 0, 1);
+}
+
+.tab--menu--item::before {
+	border-width: 2px 0 0;
+	-webkit-transform: translateY(calc(100% - 2px));
+	transform: translateY(calc(100% - 2px));
+}
+
+.tab--menu--item::after {
+	right: -1px;
+	left: -1px;
+	border-width: 0 2px;
+	-webkit-transform: scale(1, 0);
+	transform: scale(1, 0);
+	-webkit-transform-origin: 50% 100%;
+	transform-origin: 50% 100%;
+}
+
+.tab--menu--item.tab--menu--current::before {
+	-webkit-transform: translate(0, 0);
+	transform: translate(0, 0);
+	-webkit-transition-timing-function: cubic-bezier(1, 0.6, 0, 1.22);
+	transition-timing-function: cubic-bezier(1, 0.6, 0, 1.22);
+	z-index: 50;
+}
+
+.tab--menu--item.tab--menu--current::after {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition-timing-function: cubic-bezier(1, 0.6, 0, 1.22);
+	transition-timing-function: cubic-bezier(1, 0.6, 0, 1.22);
+	z-index: 50;
+}
+
+.tab--menu--current .tab--menu--link,
+.tab--menu--link:hover,
+.tab--menu--link:focus {
+	color: var(--font-color);
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Cloud Menu</title>
+		<link rel="stylesheet" type="text/css" href="assets/css/menu--style.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/modal--style.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/col--style.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/form--style.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/page--style.css">
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+	</head>
+	<body>
+		<nav class="side--menu">
+			<ul class="side--menu--list">
+				<li><a href="https://ingrim4.me/" class="fa fa-flask"></a></li>
+				<li><a href="./dashboard.html" class="fa fa-home"></a></li>
+				<li><a href="./settings.html" class="fa fa-cog"></a></li>
+				<li><a href="./server.html" class="fa fa-server"></a></li>
+				<li><a href="./gamemodes.html" class="fa fa-gamepad"></a></li>
+				<li class="side--menu--current"><a class="fa fa-pencil-square-o"></a></li>
+				<li><a href="./logout.html" class="fa fa-power-off"></a></li>
+			</ul>
+		</nav>
+		<div id="page">
+			<h1>Sign layouts</h1>
+			<ul id="layouts" class="list--body">
+				<li class="col--8-2 col--m-3-1 col--s-8-4 list--item" data-id="layout-0">
+					<h1 class="list--item--title">Layout One</h1>
+					<div class="list--item--header">
+						<img class="list--item--header--image" src="./assets/img/sign.png">
+						<ul class="layout--lines">
+							<li class="layout--line">Line 1</li>
+							<li class="layout--line">Line 2</li>
+							<li class="layout--line">Line 3</li>
+							<li class="layout--line">Line 4</li>
+						</ul>
+						<div class="list--item--header--overlay">
+							<span class="light--button" modal-trigger="modal--edit">Edit</span>
+							<span class="light--button" modal-trigger="modal--delete">Delete</span>
+						</div>
+					</div>
+				</li>
+				<li class="col--8-2 col--m-3-1 col--s-8-4 list--item" data-id="layout-1">
+					<h1 class="list--item--title">Layout Two</h1>
+					<div class="list--item--header">
+						<img class="list--item--header--image" src="./assets/img/sign.png">
+						<ul class="layout--lines">
+							<li class="layout--line">Line 1</li>
+							<li class="layout--line">Line 2</li>
+							<li class="layout--line">Line 3</li>
+							<li class="layout--line">Line 4</li>
+						</ul>
+						<div class="list--item--header--overlay">
+							<span class="light--button" modal-trigger="modal--edit">Edit</span>
+							<span class="light--button" modal-trigger="modal--delete">Delete</span>
+						</div>
+					</div>
+				</li>
+				<li class="col--8-2 col--m-3-1 col--s-8-4 list--item" data-id="layout-2">
+					<h1 class="list--item--title">Layout Three</h1>
+					<div class="list--item--header">
+						<img class="list--item--header--image" src="./assets/img/sign.png">
+						<ul class="layout--lines">
+							<li class="layout--line">Line 1</li>
+							<li class="layout--line">Line 2</li>
+							<li class="layout--line">Line 3</li>
+							<li class="layout--line">Line 4</li>
+						</ul>
+						<div class="list--item--header--overlay">
+							<span class="light--button" modal-trigger="modal--edit">Edit</span>
+							<span class="light--button" modal-trigger="modal--delete">Delete</span>
+						</div>
+					</div>
+				</li>
+				<li class="col--8-2 col--m-3-1 col--s-8-4 list--item" data-id="new">
+					<h1 class="list--item--title">Blank</h1>
+					<div class="list--item--header">
+						<img class="list--item--header--image" src="./assets/img/sign.png">
+						<div class="list--item--header--overlay">
+							<span class="light--button" modal-trigger="modal--edit">Add</span>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div id="modal--delete" class="modal">
+			<h3 class="modal--title">Warning</h3>
+			<div class="modal--body">
+				<p>Are you sure you want to delete this layout?</p>
+				<div class="modal--button--container">
+					<span class="light--button" modal-close>Delete</span>
+					<span class="light--button" modal-close>Cancel</span>
+				</div>
+			</div>
+		</div>
+		<div id="modal--edit" class="modal">
+			<input class="modal--title default" autocomplete="off" maxlength="64" type="text" placeholder="Title" name="title"></input>
+			<div class="modal--body">
+				<div class="list--item--header">
+					<img class="list--item--header--image" src="./assets/img/sign.png">
+					<div class="layout--lines">
+						<input class="default layout--line big" autocomplete="off" maxlength="16" type="text" name="line-0"></input>
+						<input class="default layout--line big" autocomplete="off" maxlength="16" type="text" name="line-1"></input>
+						<input class="default layout--line big" autocomplete="off" maxlength="16" type="text" name="line-2"></input>
+						<input class="default layout--line big" autocomplete="off" maxlength="16" type="text" name="line-3"></input>
+					</div>
+				</div>
+				<div class="modal--button--container">
+					<span class="light--button" modal-close>Apply</span>
+					<span class="light--button" modal-close>Cancel</span>
+				</div>
+			</div>
+		</div>
+		<div id="modal--overlay"></div>
+	</body>
+	<script src="assets/js/modal.js"></script>
+	<script src="assets/js/form.js"></script>
+</html>

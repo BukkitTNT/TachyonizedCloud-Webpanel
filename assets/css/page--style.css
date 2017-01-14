@@ -1,0 +1,335 @@
+* {
+	font-family: 'Roboto', Arial;
+	margin: 0;
+	padding: 0;
+	outline: none;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	color: var(--font-color);
+}
+
+:root {
+  --bg-color: #1f2128;
+  --bg-panel-color: #191a1f;
+  --bg-focus-color: #14151a;
+  --bg-accent-color: #101014;
+
+  --font-color: #fff;
+  --font-accent-color: #d1d1d1;
+
+  --trans-color: color .2s ease-in-out;
+  --trans-bg: background .2s ease-in-out;
+  --trans-combi: color .2s ease-in-out, background .2s ease-in-out;
+}
+
+*::selection {
+  background: #3E3E3E;
+}
+
+*::-moz-selection {
+  background: #3E3E3E;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: var(--bg-color);
+  padding-left: 82px;
+}
+
+a {
+	text-decoration: none;
+	outline-style: none;
+	color: #fff;
+}
+
+/* Page */
+#page {
+	max-width: 1400px;
+	width: 80%;
+	margin: auto;
+}
+
+#page > h1 {
+	margin: 20px 0 10px;
+	font-size: 25px;
+	font-weight: 100;
+  color: var(--font-color);
+}
+
+.chart--container {
+	width: 100%;
+}
+
+.chart--container > div {
+	display: none;
+	margin: auto;
+}
+
+.chart--container--active {
+	display: block !important;
+}
+
+/* CONSOLE */
+#cloud--console {
+	position: fixed;
+	top: 20%;
+	left: 12.5%;
+	width: 75%;
+	height: 60%;
+	z-index: 10000;
+	border: 2px solid #ccc;
+	border-top-width: 20px;
+	visibility: hidden;
+	opacity: 0;
+}
+
+@keyframes joltBG {
+  0% {
+    opacity: 0.3;
+  }
+  22%, 26% {
+    opacity: 0.2;
+  }
+  27%, 45% {
+    opacity: 0.4;
+  }
+  46%, 76% {
+    opacity: 0.5;
+  }
+  76%, 78% {
+    opacity: 0.05;
+  }
+  78% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+.console {
+	width: 100%;
+	height: 100%;
+	overflow-x: auto;
+	overflow-y: scroll;
+	display: inline-block;
+	background: #141e1e;
+	padding: 1em 1em 0 1em;
+}
+
+.console:before {
+	position: absolute;
+	pointer-events: none;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	content: '';
+	z-index: 1000;
+	background-color: rgba(50, 50, 80, 0.6);
+	box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 60, 0.3);
+	background: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%222px%22%20height%3D%222px%22%20viewBox%3D%220%200%202%202%22%20enable-background%3D%22new%200%200%20600%20600%22%20xml%3Aspace%3D%22preserve%22%3E%3Cline%20fill%3D%22none%22%20stroke%3D%22%23000000%22%20stroke-miterlimit%3D%2210%22%20x1%3D%220%22%20y1%3D%220.5%22%20x2%3D%22600%22%20y2%3D%220.5%22%2F%3E%3C%2Fsvg%3E');
+	animation: joltBG 10000ms infinite linear;
+}
+
+.console > pre,
+.console--input > textarea,
+.console--input:before {
+	font-family: Monaco, Consolas, "Lucida Console", monospace;
+	line-height: 1.45;
+	color: #dce6e6;
+	font-size: 1em;
+}
+
+.console--input {
+	position: relative;
+	display: inline-block;
+	margin-bottom: 0.5em;
+	width: 100%;
+}
+
+.console--input:before {
+	position: absolute;
+	pointer-events: none;
+	top: 0;
+	left: 0;
+	content: '$: ';
+}
+
+.console--input > textarea {
+	width: calc( 100% - 1.75em);
+	resize: none;
+	line-height: 1.5em;
+	border: none;
+	background: transparent;
+	margin-left: 1.75em;
+	overflow: hidden;
+}
+
+/* LISTS */
+.list--body {
+	width: 100%;
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.list--item {
+	list-style: none;
+	padding-right: 30px;
+	margin-bottom: 30px;
+	flex: 1 0 auto;
+}
+
+.list--item--title {
+	width: 100%;
+	padding-bottom: 10px;
+	margin-top: 10px;
+	font-size: 21px;
+	font-weight: bold;
+	float: left;
+}
+
+.list--item--header {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	cursor: default;
+	display: inline-block;
+	position: relative;
+}
+
+.list--item--header--image {
+	width: 100%;
+	height: auto;
+}
+
+.list--item--header--overlay {
+	visibility: hidden;
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	left: 50%;
+	width: 75%;
+	margin: 0 auto;
+	z-index: 100;
+	text-align: center;
+	transform: translate(-50%, 0);
+	transition: all 250ms ease-in-out 100ms;
+}
+
+.list--item--header:hover > .list--item--header--overlay {
+	visibility: visible;
+	top: 50%;
+	opacity: 1;
+	transform: translate(-50%, -50%);
+}
+
+/* SETTINGS */
+#settings .list--item {
+	padding: 0 30px 0 10px;
+	border-right: 2px solid #ccc;
+}
+#settings .list--item:last-child {
+	border: none;
+}
+
+.settings--sub {
+	padding-left: 25px;
+	float: left;
+	width: 100%;
+}
+
+.settings--option {
+	width: 100%;
+	padding: 20px 0 20px 0;
+	list-style: none;
+	font-size: 18px;
+	float: left;
+}
+
+/* GAMEMODES */
+#gamemodes .list--item--title {
+	border-bottom: 6px solid #0f1013;
+}
+
+.gamemode--setting {
+	list-style: none;
+	padding: 15px;
+	margin-bottom: 5px;
+	font-size: 18px;
+	background: var(--bg-focus-color);
+}
+
+.gamemode--setting > i {
+	margin-right: 12px;
+}
+
+.gamemode--setting > span {
+	float: right;
+}
+
+.gamemode--file,
+.gamemode--file--sub {
+	list-style: disc;
+	padding: 5px 5px 0 0;
+	margin-left: 30px;
+	font-size: 16.5px;
+}
+
+.gamemode--file--sub {
+	list-style: circle;
+}
+
+/* LAYOUTS */
+.layout--lines {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: 10px 0;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+.layout--line {
+	position: relative;
+	width: 100%;
+	height: 25%;
+	line-height: 20px;
+	list-style: none;
+	padding: 0 15px;
+	font-size: 1.5em;
+	letter-spacing: -1px;
+	font-weight: lighter;
+	font-family: 'Minecrafta';
+	text-align: center;
+	color: #000;
+}
+
+.layout--line.big {
+	background-color: transparent;
+	border: none;
+	font-size: 2.2em;
+}
+
+.layout--line::before {
+	content: '';
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+
+.layout--line::selection {
+	background-color: #4a60a5;
+}
+
+.layout--line::-moz-selection {
+	background-color: #4a60a5;
+}

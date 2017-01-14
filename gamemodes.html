@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Cloud Menu</title>
+		<link rel="stylesheet" type="text/css" href="assets/css/menu--style.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/modal--style.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/col--style.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/page--style.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/form--style.css">
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+	</head>
+	<body>
+		<nav class="side--menu">
+			<ul class="side--menu--list">
+				<li><a href="https://ingrim4.me/" class="fa fa-flask"></a></li>
+				<li><a href="./dashboard.html" class="fa fa-home"></a></li>
+				<li><a href="./settings.html" class="fa fa-cog"></a></li>
+				<li><a href="./server.html" class="fa fa-server"></a></li>
+				<li class="side--menu--current"><a class="fa fa-gamepad"></a></li>
+				<li><a href="./layout.html" class="fa fa-pencil-square-o"></a></li>
+				<li><a href="./logout.html" class="fa fa-power-off"></a></li>
+			</ul>
+		</nav>
+		<div id="page">
+			<h1>Gamemodes</h1>
+			<ul id="gamemodes" class="list--body">
+				<li class="col--3-1 col--m-8-4 col--s-8-8 list--item">
+					<h1 class="list--item--title">Survival Games</h1>
+					<div class="list--item--header">
+						<img class="list--item--header--image" src="http://static.hivemc.com/images/profile_g_sg.jpg">
+						<div class="list--item--header--overlay" method="GET" action="">
+							<span class="light--button" modal-trigger="modal--edit">Edit</span>
+							<span class="light--button" modal-trigger="modal--delete">Delete</span>
+						</div>
+					</div>
+					<ul>
+						<li class="gamemode--setting"><i class="fa fa-server"></i>Max. servers<span>20</span></li>
+						<li class="gamemode--setting"><i class="fa fa-user-times"></i>Players per server<span>12</span></li>
+						<li class="gamemode--setting"><i class="fa fa-puzzle-piece"></i>Plugins
+							<ul>
+								<li class="gamemode--file">
+									SurvivalGames
+									<ul>
+										<li class="gamemode--file--sub">SurvivalGames.jar</li>
+										<li class="gamemode--file--sub">SurvivalGames/*</li>
+									</ul>
+								</li>
+								<li class="gamemode--file">
+									Core
+									<ul>
+										<li class="gamemode--file--sub">Core.jar</li>
+										<li class="gamemode--file--sub">Core/*</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li class="gamemode--setting"><i class="fa fa-map"></i>Maps
+							<ul>
+								<li class="gamemode--file">
+									SG-1
+									<ul>
+										<li class="gamemode--file--sub">sg-lobby</li>
+										<li class="gamemode--file--sub">sg-1</li>
+									</ul>
+								</li>
+								<li class="gamemode--file">
+									SG-2
+									<ul>
+										<li class="gamemode--file--sub">sg-lobby</li>
+										<li class="gamemode--file--sub">sg-2</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li class="col--3-1 col--m-8-4 col--s-8-8 list--item">
+					<h1 class="list--item--title">Trouble in Mineville</h1>
+					<div class="list--item--header">
+						<img class="list--item--header--image" src="http://static.hivemc.com/images/profile_g_mv.jpg">
+						<div class="list--item--header--overlay" method="GET" action="">
+							<span class="light--button" modal-trigger="modal--edit">Edit</span>
+							<span class="light--button" modal-trigger="modal--delete">Delete</span>
+						</div>
+					</div>
+					<ul>
+						<li class="gamemode--setting"><i class="fa fa-server"></i>Max. servers<span>14</span></li>
+						<li class="gamemode--setting"><i class="fa fa-user-times"></i>Players per server<span>24</span></li>
+						<li class="gamemode--setting"><i class="fa fa-puzzle-piece"></i>Plugins
+							<ul>
+								<li class="gamemode--file">TIMV.jar</li>
+								<li class="gamemode--file">TIMV/*</li>
+								<li class="gamemode--file">Core.jar</li>
+								<li class="gamemode--file">Core/*</li>
+							</ul>
+						</li>
+						<li class="gamemode--setting"><i class="fa fa-map"></i>Maps
+							<ul>
+								<li class="gamemode--file">Minecraft-B5</li>
+								<li class="gamemode--file">Teromina</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li class="col--3-1 col--m-8-4 col--s-8-8 list--item">
+					<h1 class="list--item--title">The Herobrine</h1>
+					<div class="list--item--header">
+						<img class="list--item--header--image" src="http://static.hivemc.com/images/profile_g_hb.jpg">
+						<div class="list--item--header--overlay" method="GET" action="">
+							<span class="light--button" modal-trigger="modal--edit">Edit</span>
+							<span class="light--button" modal-trigger="modal--delete">Delete</span>
+						</div>
+					</div>
+					<ul>
+						<li class="gamemode--setting"><i class="fa fa-server"></i>Max. servers<span>-1</span></li>
+						<li class="gamemode--setting"><i class="fa fa-user-times"></i>Players per server<span>-1</span></li>
+						<li class="gamemode--setting"><i class="fa fa-puzzle-piece"></i>Plugins<span>InDev</span></li>
+						<li class="gamemode--setting"><i class="fa fa-map"></i>Maps<span>Building</span></li>
+					</ul>
+				</li>
+				<li class="col--3-1 col--m-8-4 col--s-8-8 list--item">
+					<h1 class="list--item--title">Hide and Seek</h1>
+					<div class="list--item--header">
+						<img class="list--item--header--image" src="http://static.hivemc.com/images/profile_g_hns.jpg">
+						<div class="list--item--header--overlay" method="GET" action="">
+							<span class="light--button" modal-trigger="modal--edit">Edit</span>
+							<span class="light--button" modal-trigger="modal--delete">Delete</span>
+						</div>
+					</div>
+					<ul>
+						<li class="gamemode--setting"><i class="fa fa-server"></i>Max. servers<span>-1</span></li>
+						<li class="gamemode--setting"><i class="fa fa-user-times"></i>Players per server<span>-1</span></li>
+						<li class="gamemode--setting"><i class="fa fa-puzzle-piece"></i>Plugins<span>InDev</span></li>
+						<li class="gamemode--setting"><i class="fa fa-map"></i>Maps<span>Building</span></li>
+					</ul>
+				</li>
+				<li class="col--3-1 col--m-8-4 col--s-8-8 list--item">
+					<h1 class="list--item--title">Splegg</h1>
+					<div class="list--item--header">
+						<img class="list--item--header--image" src="http://static.hivemc.com/images/profile_g_sp.jpg">
+						<div class="list--item--header--overlay" method="GET" action="">
+							<span class="light--button" modal-trigger="modal--edit">Edit</span>
+							<span class="light--button" modal-trigger="modal--delete">Delete</span>
+						</div>
+					</div>
+					<ul>
+						<li class="gamemode--setting"><i class="fa fa-server"></i>Max. servers<span>-1</span></li>
+						<li class="gamemode--setting"><i class="fa fa-user-times"></i>Players per server<span>-1</span></li>
+						<li class="gamemode--setting"><i class="fa fa-puzzle-piece"></i>Plugins<span>InDev</span></li>
+						<li class="gamemode--setting"><i class="fa fa-map"></i>Maps<span>Building</span></li>
+					</ul>
+				</li>
+				<li class="col--3-1 col--m-8-4 col--s-8-8 list--item">
+					<h1 class="list--item--title">One in the Chamber</h1>
+					<div class="list--item--header">
+						<img class="list--item--header--image" src="http://static.hivemc.com/images/profile_g_oitc.jpg">
+						<div class="list--item--header--overlay" method="GET" action="">
+							<span class="light--button" modal-trigger="modal--edit">Edit</span>
+							<span class="light--button" modal-trigger="modal--delete">Delete</span>
+						</div>
+					</div>
+					<ul>
+						<li class="gamemode--setting"><i class="fa fa-server"></i>Max. servers<span>-1</span></li>
+						<li class="gamemode--setting"><i class="fa fa-user-times"></i>Players per server<span>-1</span></li>
+						<li class="gamemode--setting"><i class="fa fa-puzzle-piece"></i>Plugins<span>InDev</span></li>
+						<li class="gamemode--setting"><i class="fa fa-map"></i>Maps<span>Building</span></li>
+					</ul>
+				</li>
+				<li class="col--3-1 col--m-8-4 col--s-8-8 list--item">
+					<h1 class="list--item--title">Blank</h1>
+					<div class="list--item--header">
+						<img class="list--item--header--image" src="http://puu.sh/p0SfQ/3dc1741303.jp">
+						<div class="list--item--header--overlay" method="GET" action="">
+							<span class="light--button" modal-trigger="modal--edit">Add</span>
+						</div>
+					</div>
+					<ul>
+						<li class="gamemode--setting"><i class="fa fa-server"></i>Max. servers<span>-1</span></li>
+						<li class="gamemode--setting"><i class="fa fa-user-times"></i>Players per server<span>-1</span></li>
+						<li class="gamemode--setting"><i class="fa fa-puzzle-piece"></i>Plugins<span>none</span></li>
+						<li class="gamemode--setting"><i class="fa fa-map"></i>Maps<span>none</span></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div id="modal--delete" class="modal">
+			<h3 class="modal--title">Warning</h3>
+			<div class="modal--body">
+				<p>Are you sure you want to delete this gamemode?</p>
+				<div class="modal--button--container">
+					<span class="light--button" modal-close>Delete</span>
+					<span class="light--button" modal-close>Cancel</span>
+				</div>
+			</div>
+		</div>
+		<div id="modal--edit" class="modal">
+			<input class="modal--title default" autocomplete="off" maxlength="64" type="text" placeholder="Title" name="title"></input>
+			<div class="modal--body">
+
+				<div class="modal--button--container">
+					<span class="light--button" modal-close>Apply</span>
+					<span class="light--button" modal-close>Cancel</span>
+				</div>
+			</div>
+		</div>
+		<div id="modal--overlay"></div>
+	</body>
+	<script src="assets/js/modal.js"></script>
+	<script src="assets/js/form.js"></script>
+</html>

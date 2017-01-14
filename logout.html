@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Cloud Menu</title>
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		<style>
+			html, body {
+			  margin: 0;
+			  background-color: #000000;
+			}
+
+			.terminal {
+			  max-width: calc(100% - 30px);
+			  max-height: calc(100% - 30px);
+			  margin: 15px;
+			  padding: 20px;
+			  z-index: 9999;
+			}
+
+			.term_content {
+			  font-family: monospace;
+			  color: #CCCCCC;
+			  font-size: 25px;
+			  overflow-y: auto;
+			  overflow-x: hidden;
+			}
+
+			.term_content:after {
+			  content: '_';
+			  opacity: 1;
+			  animation: cursor 1s infinite;
+			  -webkit-animation: cursor 1s infinite;
+			}
+
+			@keyframes cursor {
+			  0% {opacity: 0;}
+			  40% {opacity: 0;}
+			  50% {opacity: 1;}
+			  90% {opacity: 1;}
+			  100% {opacity: 0;}
+			}
+
+			@-webkit-keyframes cursor {
+			  0% {opacity: 0;}
+			  40% {opacity: 0;}
+			  50% {opacity: 1;}
+			  90% {opacity: 1;}
+			  100% {opacity: 0;}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="terminal">
+			<span class="term_content">root@localhost:~$ </span>
+		</div>
+	</body>
+	<script>
+		var terminal = document.querySelector('.term_content'), i = 0, input = terminal.innerText + 'java -jar ./logout.jar -rm true -f',
+		output = [
+		'(II) TachyonizedWebserver(0): preprocessing http request'
+		,'(II) TachyonizedWebserver(0): decoding http request'
+		,'(II) TachyonizedWebserver(0): reading COOKIES and GET vars'
+		,'(II) TachyonizedWebserver(0): collecting request data to request object'
+		,'(II) TachyonizedWebserver(0): processing filled http request object'
+		,'(**) TachyonizedWebserver(0): creating page object'
+		,'(**) TachyonizedWebserver(0): generating page content'
+		,'(II) TachyonizedWebserver(0): transforming content to byte array'
+		,'(II) TachyonizedWebserver(0): construct full http response'
+		,'(II) TachyonizedWebserver(0): force user to delete cookie'
+		,'(--) TachyonizedWebserver(0): deleting session'
+		,'(--) TachyonizedWebserver(0): set protocol state to done'
+		,'(--) TachyonizedWebserver(0): enable close connection'
+		,'(II) TachyonizedWebserver(0): checking http response'
+		,'(II) TachyonizedWebserver(0): adding default http header data'
+		,'(**) TachyonizedWebserver(0): check connect'
+		,'(II) TachyonizedWebserver(0): sending http response'
+		,'(II) TachyonizedWebserver(0): waiting for success'
+		,'(II) TachyonizedWebserver(0): closing connection'
+		,'(II) TachyonizedWebserver(0): delete web handler object'
+		,'(--) TachyonizedWebserver(0): let netty delete the other handler and de/encoder'
+		,'(--) TachyonizedWebserver(0): let garbagecollector clean main memory'
+		,'(II) TachyonizedWebserver(0): waiting for next request'
+		];
+		function print() {
+			if(terminal.innerText.length < input.length) {
+				terminal.innerText = terminal.innerText + input[terminal.innerText.length];
+			} else if (i < output.length) {
+				window.scrollTo(0,document.body.scrollHeight);
+				var d = new Date();
+				var out = '[' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds() + ' INFO]' + output[i++];
+				terminal.innerHTML = terminal.innerHTML + '<br>' + out;
+			} else {
+				setTimeout(function() {
+					window.location.replace("../");
+				}, 5000);
+				return;
+			}
+			term_loop();
+		}
+		function term_loop(event) {
+			var rdm = Math.round(Math.random() * 400) + 100;
+			setTimeout(function() {
+				print(input);
+			}, rdm);
+		}
+		window.addEventListener('load', term_loop);
+	</script>
+</html>

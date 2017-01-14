@@ -1,0 +1,185 @@
+.col--3-3, .col--3-2, .col--3-1,
+.col--8-8, .col--8-7, .col--8-6, .col--8-5, .col--8-4, .col--8-3, .col--8-2, .col--8-1,
+.col--m-3-3, .col--m-3-2, .col--m-3-1,
+.col--m-8-8, .col--m-8-7, .col--m-8-6, .col--m-8-5, .col--m-8-4, .col--m-8-3, .col--m-8-2, .col--m-8-1,
+.col--s-3-3, .col--s-3-2, .col--s-3-1,
+.col--s-8-8, .col--s-8-7, .col--s-8-6, .col--s-8-5, .col--s-8-4, .col--s-8-3, .col--s-8-2, .col--s-8-1 {
+  float: left;
+}
+
+.col--bor {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.col--clear {
+  float: none !important;
+}
+
+.col--right {
+  text-align: right;
+}
+
+.col--center {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.col--3-3,
+.col--8-8 {
+  width: 100%;
+  max-width: 100%;
+}
+
+.col--8-7 {
+  width: 87.5%;
+  max-width: 87.5%;
+}
+
+.col--8-6 {
+  width: 75%;
+  max-width: 75%;
+}
+
+.col--8-5 {
+  width: 62.5%;
+  max-width: 62.5%;
+}
+
+.col--8-4 {
+  width: 50%;
+  max-width: 50%;
+}
+
+.col--8-3 {
+  width: 37.5%;
+  max-width: 37.5%;
+}
+
+.col--8-2 {
+  width: 25%;
+  max-width: 25%;
+}
+
+.col--8-1 {
+  width: 12.5%;
+  max-width: 12.5%;
+}
+
+.col--3-2 {
+  width: calc(100% / 3 * 2);
+  max-width: calc(100% / 3 * 2);
+}
+
+.col--3-1 {
+  width: calc(100% / 3);
+  max-width: calc(100% / 3);
+}
+
+@media screen and (max-width: 1100px) {
+	.col--m-3-3,
+	.col--m-8-8 {
+	  width: 100%;
+	  max-width: 100%;
+	  padding-top: 10px;
+	}
+
+	.col--m-8-7 {
+	  width: 87.5%;
+	  max-width: 87.5%;
+	}
+
+	.col--m-8-6 {
+	  width: 75%;
+	  max-width: 75%;
+	}
+
+	.col--m-8-5 {
+	  width: 62.5%;
+	  max-width: 62.5%;
+	}
+
+	.col--m-8-4 {
+	  width: 50%;
+	  max-width: 50%;
+	}
+
+	.col--m-8-3 {
+	  width: 37.5%;
+	  max-width: 37.5%;
+	}
+
+	.col--m-8-2 {
+	  width: 25%;
+	  max-width: 25%;
+	}
+
+	.col--m-8-1 {
+	  width: 12.5%;
+	  max-width: 12.5%;
+	}
+
+	.col--m-3-2 {
+	  width: calc(100% / 3 * 2);
+	  max-width: calc(100% / 3 * 2);
+	}
+
+	.col--m-3-1 {
+	  width: calc(100% / 3);
+	  max-width: calc(100% / 3);
+	}
+}
+
+@media screen and (max-width: 650px) {
+	.col--s-3-3,
+	.col--s-8-8 {
+	  width: 100%;
+	  max-width: 100%;
+	  padding-top: 10px;
+	}
+
+	.col--s-8-7 {
+	  width: 87.5%;
+	  max-width: 87.5%;
+	}
+
+	.col--s-8-6 {
+	  width: 75%;
+	  max-width: 75%;
+	}
+
+	.col--s-8-5 {
+	  width: 62.5%;
+	  max-width: 62.5%;
+	}
+
+	.col--s-8-4 {
+	  width: 50%;
+	  max-width: 50%;
+	}
+
+	.col--s-8-3 {
+	  width: 37.5%;
+	  max-width: 37.5%;
+	}
+
+	.col--s-8-2 {
+	  width: 25%;
+	  max-width: 25%;
+	}
+
+	.col--s-8-1 {
+	  width: 12.5%;
+	  max-width: 12.5%;
+	}
+
+	.col--s-3-2 {
+	  width: calc(100% / 3 * 2);
+	  max-width: calc(100% / 3 * 2);
+	}
+
+	.col--s-3-1 {
+	  width: calc(100% / 3);
+	  max-width: calc(100% / 3);
+	}
+}

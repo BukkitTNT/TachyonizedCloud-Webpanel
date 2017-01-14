@@ -1,0 +1,187 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Cloud Menu</title>
+		<link rel="stylesheet" type="text/css" href="assets/css/menu--style.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/col--style.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/form--style.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/page--style.css">
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
+	</head>
+	<body>
+		<nav class="side--menu">
+			<ul class="side--menu--list">
+				<li><a href="https://ingrim4.me/" class="fa fa-flask"></a></li>
+				<li><a href="./dashboard.html" class="fa fa-home"></a></li>
+				<li class="side--menu--current"><a class="fa fa-cog"></a></li>
+				<li><a href="./server.html" class="fa fa-server"></a></li>
+				<li><a href="./gamemodes.html" class="fa fa-gamepad"></a></li>
+				<li><a href="./layout.html" class="fa fa-pencil-square-o"></a></li>
+				<li><a href="./logout.html" class="fa fa-power-off"></a></li>
+			</ul>
+		</nav>
+		<div id="page">
+			<h1>Settings</h1>
+			<ul id="settings" class="list--body">
+				<li class="col--3-1 col--m-8-4 col--s-8-8 list--item">
+					<h1 class="list--item--title">General</h1>
+					<ul class="settings--sub">
+						<li class="settings--option">
+							<label class="col--8-1" for="version">Version</label>
+							<div class="col--8-7 col--bor">
+								<select name="version" id="version">
+									<option>1.8</option>
+									<option>1.8 - 1.9</option>
+									<option>1.8 - 1.10</option>
+									<option>1.9</option>
+									<option>1.9 - 1.10</option>
+									<option selected>1.10</option>
+								</select>
+							</div>
+						</li>
+						<li class="settings--option">
+							<label class="col--8-1" for="motd">MOTD</label>
+							<div class="col--8-7 col--bor">
+								<textarea name="motd" id="motd" rows="4">A Minecraft Server</textarea>
+							</div>
+						</li>
+						<li class="settings--option">
+							<label class="col--8-1" for="slots">Slots</label>
+							<div class="col--8-7 col--bor">
+								<div class="number">
+									<input class="number" type="text" autocomplete="off" name="slots" id="slots" min="0" max="99999" value="20"/>
+									<label for="slots"></label>
+								</div>
+							</div>
+						</li>
+						<li class="settings--option">
+							<label class="col--8-1" for="bots">Bots</label>
+							<div class="col--8-7 col--bor">
+								<div class="number">
+									<input class="number" type="text" autocomplete="off" name="bots" id="bots" min="0" max="99999" value="0"/>
+									<label for="bots"></label>
+								</div>
+							</div>
+						</li>
+						<li class="settings--option">
+							<input class="box" type="checkbox" name="maintenance" id="maintenance"/>
+							<label for="maintenance"></label>
+							<label for="maintenance">Maintenance</label>
+						</li>
+						<li class="settings--option">
+							<input class="box" type="checkbox" checked name="autoslot" id="autoslot"/>
+							<label for="autoslot"></label>
+							<label for="autoslot">Autoslot</label>
+						</li>
+						<li class="settings--option">
+							<input class="box" type="checkbox" checked name="stats" id="stats"/>
+							<label for="stats"></label>
+							<label for="stats">Statistics</label>
+						</li>
+					</ul>
+				</li>
+				<li class="col--3-1 col--m-8-4 col--s-8-8 list--item">
+					<h1 class="list--item--title">Lobby</h1>
+					<ul class="settings--sub">
+						<li class="settings--option">
+							<input class="box" type="checkbox" checked name="lobby-cmd" id="lobby-cmd"/>
+							<label for="lobby-cmd"></label>
+							<label for="lobby-cmd">Command</label>
+						</li>
+						<li class="settings--option">
+							<input class="box" type="checkbox" checked name="lobby-signs" id="lobby-signs"/>
+							<label for="lobby-signs"></label>
+							<label for="lobby-signs">Signs</label>
+						</li>
+						<li class="settings--option">
+							<label class="col--8-2" for="lobby-method">Joinmethod</label>
+							<div class="col--8-6 col--bor">
+								<select name="lobby-method" id="lobby-method">
+									<option>Random lobby</option>
+									<option>Roundrobin</option>
+									<option selected>Emptiest lobby</option>
+								</select>
+							</div>
+						</li>
+						<li class="settings--option">
+							<label class="col--8-2" for="lobby-mode">Lobbymode</label>
+							<div class="col--8-6 col--bor">
+								<select name="lobby-mode" id="lobby-mode">
+									<option selected>Lobby</option>
+									<option>Survival Games</option>
+									<option>Trouble in Mineville</option>
+									<option>The Herobrine</option>
+									<option>Hide and Seek</option>
+									<option>Splegg</option>
+									<option>One in the Chamber</option>
+								</select>
+							</div>
+						</li>
+					</ul>
+				</li>
+				<li class="col--3-1 col--m-8-4 col--s-8-8 list--item">
+					<h1 class="list--item--title">Join</h1>
+					<ul class="settings--sub">
+						<li class="settings--option">
+							<input class="box" type="checkbox" checked name="prty-join" id="prty-join"/>
+							<label for="prty-join"></label>
+							<label for="prty-join">Priorityjoin</label>
+						</li>
+						<li class="settings--option">
+							<table id="prty-table">
+								<tr>
+									<th>Permission</th>
+									<th>Power</th>
+									<td></td>
+								</tr>
+								<tr>
+									<td>permission.1</td>
+									<td>100</td>
+									<td>
+										<i class="fa fa-remove"></i>
+									</td>
+								</tr>
+								<tr>
+									<td>permission.2</td>
+									<td>200</td>
+									<td>
+										<i class="fa fa-remove"></i>
+									</td>
+								</tr>
+								<tr>
+									<td>permission.3</td>
+									<td>300</td>
+									<td>
+										<i class="fa fa-remove"></i>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="text"/>
+									</td>
+									<td>
+										<div style="position: relative;">
+											<input class="number" type="text" autocomplete="off" name="power" id="power" min="0" max="99999" value="0"/>
+											<label for="power"></label>
+										</div>
+									</td>
+									<td>
+										<i class="fa fa-check"></i>
+									</td>
+								</tr>
+							</table>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script src="assets/js/form.js"></script>
+	<script src="assets/js/select.js"></script>
+</html>
